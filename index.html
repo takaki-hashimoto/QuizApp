@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="loading" id="loading"></div>
+
+
+    <div id="sbutton_box">
+        <button onclick="ansStart()" class="reset button-shadow1" id="ansStartbutton">
+            <h2>Click<br>To Play</h2>
+        </button>
+    </div>
+
+    <div id="rebutton_box">
+        <button onclick="Reload()" class="reset button-shadow2" id="loadbutton">
+            <h2>Can't<br>Click Now</h2>
+        </button>
+    </div>
+
+
+    <div id="gamegamenbox">
+
+        <div id="mainover_box">
+
+            <div id="mainbox">
+                <div id="qselect_area">
+                    <!-- 選択肢 -->
+                    <p id="ans1"></p>
+                    <p id="ans2"></p>
+                    <p id="ans3"></p>
+                </div>
+            </div>
+
+            <!-- ゲージ -->
+            <div id="progress_box">
+                <progress id="myProgress" value="0" max="200">0%</progress>
+                <div class="progress_imgbox">
+                    <img src="./img/bakuhatsu.gif" alt="">
+                </div>
+            </div>
+
+            <!-- タイマー -->
+            <div id="qcountdown_area">
+                <h3 id="countDown"></h3>
+            </div>
+
+            <!-- 問題数 -->
+            <div id="qcount_area">
+                <h2 id="questionnum"></h2>
+            </div>
+
+        </div>
+
+
+        <div id="mainunder_box">
+
+            <!-- 問題文 -->
+            <div id="qsentece_area">
+                <h2 id="question"></h2>
+                <p id="question_sentence"></p>
+                <p id="hint_sentence"></p>
+                <div class="qsentece_imgbox">
+                    <img src="./img/gears.gif" alt="">
+                </div>
+            </div>
+
+            <div id="qbutton_area">
+                <!-- 回答ボタン -->
+                <button onclick="ansButton(1)" id="ansButton1" class="reset answer_button"></button>
+                <button onclick="ansButton(2)" id="ansButton2" class="reset answer_button"></button>
+                <button onclick="ansButton(3)" id="ansButton3" class="reset answer_button"></button>
+                <button onclick="ansButton(4)" id="ansButton4" class="reset answer_button"></button>
+            </div>
+
+        </div>
+        
+
+        <!-- 正答数 -->
+        <div id="qanswer_area">
+            <h1 id="answer"></h1>
+        </div>
+
+    </div>
+
+
+
+    <script src="./main.js"></script>
+
+</body>
+
+</html>

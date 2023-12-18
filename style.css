@@ -1,0 +1,709 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: bottom;
+}
+
+
+
+/* ローディング */
+
+.loading {
+    width: 100%;
+    height: 100vh;
+    transition: all 1s;
+    background: black;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+/* スタートボタン */
+#sbutton_box {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    width: 10%;
+    height: 25%;
+    opacity: 0;
+
+    animation: leftmove .5s .7s 1 forwards;
+}
+
+@keyframes leftmove {
+    from {
+        top: 30%;
+        left: 50%;
+        opacity: 0;
+    }
+
+    to{
+        top: 30%;
+        left: 5%;
+        opacity: 1;
+    }
+}
+
+
+.reset {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: normal;
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* iOSタップ時の挙動を調整 */
+}
+
+.button-shadow1 {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d18;
+    color: #000;
+    font-weight: bold;
+    border-radius: 50%;
+    border: double 5px #00000044;
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.6);
+}
+
+
+.button-shadow1:hover {
+    animation: 1s push1 forwards;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    transition: all .5s;
+}
+
+@keyframes push1 {
+    from {
+        opacity: 0.5;
+        transform: translateY(0);
+        background: #0d0d0d18;
+        color: #000;
+        border: double 5px #00000044;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(10px);
+        background-color: #000;
+        color: #fff;
+        border: double 5px #ffffff;
+    }
+}
+
+
+
+/* リロードボタン */
+
+#rebutton_box {
+    position: fixed;
+    top: 30%;
+    right: 50%;
+    width: 10%;
+    height: 25%;
+
+    opacity: 0;
+    animation: rightmove .5s .7s 1 forwards;
+}
+
+@keyframes rightmove {
+    from {
+        top: 30%;
+        right: 50%;
+        opacity: 0;
+    }
+
+    to{
+        top: 30%;
+        right: 5%;
+        opacity: 1;
+    }
+}
+
+.button-shadow2 {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    border: double 5px #ffffff;
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.6);
+    cursor: unset;
+}
+
+.button-shadow2-2:hover {
+    animation: 1s push2 forwards;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    transition: all .5s;
+    cursor: pointer;
+}
+
+
+
+@keyframes push2 {
+    from {
+        opacity: 0.5;
+        transform: translateY(0);
+        background-color: #000;
+        color: #fff;
+        border: double 5px #ffffff;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(10px);
+        background: #0d0d0d18;
+        color: #000;
+        border: double 5px #00000044;
+    }
+}
+
+
+
+/* 背景画像挿入 */
+
+#gamegamenbox {
+    position: relative;
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 100vh;
+    background-size: cover;
+
+    color: #fff;
+}
+
+
+.gamestartback {
+    background-image: url(./img/blackgamen.png);
+
+    border-radius: 50px;
+    border: double 10px #fff;
+    background-position: center; 
+}
+
+.gameoverback {
+    background-image: url(./img/gameover.jpg);
+
+    border-radius: 50px;
+    border: double 10px #fff;
+    background-position: center; 
+}
+
+.finhanabiback {
+    background-image: url(./img/fin_hanabi5.gif);
+
+    border-radius: 50px;
+    border: double 10px #fff;
+    background-position: center;
+}
+
+.finsakuraback {
+    background-image: url(./img/fin_sakura.gif);
+
+    border-radius: 50px;
+    border: double 10px #fff;
+    background-position: right; 
+}
+
+.finkamihubukiback {
+    background-image: url(./img/fin_kamihubuki.gif);
+
+    border-radius: 50px;
+    border: double 10px #fff;
+    background-position: right;
+}
+
+
+
+
+#mainover_box {
+    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 55%;
+}
+
+
+#mainbox {
+    position: relative;
+    width: 65%;
+    height: 85%;
+    margin: 5% auto 2%;
+    border-radius: 10px;
+}
+
+
+.ballgif {
+    background-image: url(./img/ballweight.gif);
+    border: double 8px #ffffff3d;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nazotokiback {
+    background-image: url(./img/nazotoki.jpg);
+    border: double 8px #ffffff3d;
+
+    background-size: 100% 100%;
+}
+
+.hanabigif {
+    background-image: url(./img/firework.gif);
+    border: double 8px #ffffff3d;
+
+    background-position: right;
+    background-size: 50% 100%;
+    background-repeat: repeat-x;
+}
+
+
+
+/* 選択肢位置変更 */
+#qselect_area {
+    position: relative;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#ans1 {
+    position: absolute;
+    top: 30%;
+    left: 3%;
+
+    opacity: 0;
+}
+
+.hint_appearance1{
+    animation: appear 1s 8s 1 forwards;
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#ans2 {
+    position: absolute;
+    top: 45%;
+    left: 3%;
+
+    opacity: 0;
+}
+
+.hint_appearance2{
+    animation: appear2 1s 10s 1 forwards;
+}
+
+@keyframes appear2 {
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#ans3 {
+    position: absolute;
+    top: 65%;
+    left: 3%;
+
+    opacity: 0;
+}
+
+.hint_appearance3{
+    animation: appear3 1s 20s 1 forwards;
+}
+
+@keyframes appear3 {
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* ゲージ */
+
+#progress_box {
+    position: relative;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64.5%;    
+}
+
+progress {
+    width: 100%;
+}
+
+::-webkit-appearance none::-webkit-progress-bar {
+    background-color: #fff;
+    /* プログレスバーの背景色/-webkit- 用 */
+}
+
+::-webkit-progress-value {
+    background-color: rgb(255, 247, 0);
+    /* プログレスバーの進捗部分色/-webkit- 用 */
+}
+
+
+.progress_imgbox {
+    position: absolute;
+    bottom: -19.5%;
+    right: -3%;
+    height: 100%;
+
+    opacity: 0;
+    animation: tenmetsu 2s infinite linear;
+}
+
+.progress_imgbox img {
+    height: 100%;
+}
+
+@keyframes tenmetsu {
+    0%{
+        opacity: 0;
+        transform: scale(1.0);
+    }
+
+    50%{
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100%{
+        opacity: 0;
+        transform: scale(1.0);
+    }
+}
+
+
+
+/* 問題数表示 */
+#qcount_area {
+    position: absolute;
+    left: 1%;
+    top: 12%;
+    width: 15%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(89 0 255 / 30%);
+    border-radius: 50%;
+}
+
+#questionnum {
+    text-align: center;
+    letter-spacing: 0.1em;
+    line-height: 1.5em;
+    padding-top: 5%;
+}
+
+
+
+/* タイマー */
+#qcountdown_area {
+    position: absolute;
+    bottom: 10%;
+    right: 1.5%;
+    width: 15%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(89 0 255 / 30%);
+    border-radius: 50%;
+}
+
+
+#countDown {
+    text-align: center;
+    letter-spacing: 0.1em;
+    line-height: 2em;
+}
+
+
+.pattern_a {
+    font-weight: bold;
+    color: #00bb00;
+}
+
+.pattern_b {
+    font-weight: bold;
+    color: rgb(255, 247, 0);
+}
+
+.pattern_c {
+    font-weight: bold;
+    color: #ee0000;
+}
+
+.pattern_f {
+    font-weight: bold;
+    color: #ff9720;
+}
+
+
+
+
+/* --------------------------------------------- */
+
+
+
+#mainunder_box {
+    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45%;
+}
+
+
+
+/* 問題文 */
+#qsentece_area {
+    position: relative;
+    position: absolute;
+    bottom: 5%;
+    left: 1.5%;
+    width: 70%;
+    height: 90%;
+    padding: 2%;
+    background-color: rgba(0, 0, 255, 0.295);
+    border-radius: 10px;
+    border: solid 10px #fff;
+}
+
+#question {
+    width: 13%;
+    margin-bottom: 4%;
+    border-bottom: 1px solid #fff;
+    letter-spacing: 0.1em;
+    font-size: 26px;
+}
+
+#question_sentence {
+    letter-spacing: 0.3em;
+    line-height: 2em;
+    font-size: 19px;
+}
+
+#hint_sentence {
+    padding-top: 3%;
+    padding-left: 1em;
+    letter-spacing: 0.1em;
+}
+
+.qsentece_imgbox {
+    position: absolute;
+    bottom: 5%;
+    right: 1.5%;
+    width: 15%;
+    height: 20%;
+}
+
+.qsentece_imgbox img {
+    width: 100%;
+}
+
+
+
+/* 回答ボタン */
+#qbutton_area {
+    position: absolute;
+    bottom: 5%;
+    right: 1.5%;
+    width: 25%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 255, 0.295);
+    border-radius: 10px;
+    border: solid 10px #fff;
+}
+
+
+.answer_button {
+    display: block;
+    text-align: center;
+    width: 90%;
+    height: 15%;
+    margin: 5% auto;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    border-radius: 10px;
+    border: double 5px #ffffff;
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.6);
+}
+
+
+.answer_button:hover {
+    animation: .2s push3 forwards;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+@keyframes push3 {
+    from {
+        transform: translateY(0px);
+        background: #000;
+        color: #fff;
+        border: double 5px #ffffff;
+    }
+
+    to {
+        transform: translateY(5px);
+        background-color: #fff;
+        color: #0245ff;
+        border: double 5px #000;
+    }
+}
+
+
+#ansButton1,
+#ansButton2,
+#ansButton3,
+#ansButton4 {
+    position: relative;
+}
+
+#ansButton1::before {
+    position: absolute;
+    content: "➀ :";
+    font-size: 20px;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+#ansButton2::before {
+    position: absolute;
+    content: "➁ : ";
+    font-size: 20px;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+#ansButton3::before {
+    position: absolute;
+    content: "➂ : ";
+    font-size: 20px;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+#ansButton4::before {
+    position: absolute;
+    content: "➃:";
+    font-size: 20px;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+
+#ansButton1:hover::before,
+#ansButton2:hover::before,
+#ansButton3:hover::before,
+#ansButton4:hover::before {
+    color: #0245ff;
+}
+
+
+
+/* 正答数 */
+#qanswer_area {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#answer {
+    text-align: center;
+}
+
+
+.pattern_d {
+    font-weight: bold;
+    color: #31d6ff;
+}
+
+.pattern_e {
+    font-weight: bold;
+    color: #ffd211;
+}
