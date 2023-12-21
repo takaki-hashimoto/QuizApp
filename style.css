@@ -30,14 +30,13 @@
 }
 
 
-
 /* スタートボタン */
 #sbutton_box {
     position: fixed;
     top: 30%;
     left: 50%;
-    width: 10%;
-    height: 25%;
+    width: 150px;
+    height: 150px;
     opacity: 0;
 
     animation: leftmove .5s .7s 1 forwards;
@@ -50,7 +49,7 @@
         opacity: 0;
     }
 
-    to{
+    to {
         top: 30%;
         left: 5%;
         opacity: 1;
@@ -122,8 +121,8 @@
     position: fixed;
     top: 30%;
     right: 50%;
-    width: 10%;
-    height: 25%;
+    width: 150px;
+    height: 150px;
 
     opacity: 0;
     animation: rightmove .5s .7s 1 forwards;
@@ -136,7 +135,7 @@
         opacity: 0;
     }
 
-    to{
+    to {
         top: 30%;
         right: 5%;
         opacity: 1;
@@ -168,7 +167,6 @@
 
 @keyframes push2 {
     from {
-        opacity: 0.5;
         transform: translateY(0);
         background-color: #000;
         color: #fff;
@@ -176,7 +174,6 @@
     }
 
     to {
-        opacity: 1;
         transform: translateY(10px);
         background: #0d0d0d18;
         color: #000;
@@ -208,7 +205,7 @@
 
     border-radius: 50px;
     border: double 10px #fff;
-    background-position: center; 
+    background-position: center;
 }
 
 .gameoverback {
@@ -216,7 +213,7 @@
 
     border-radius: 50px;
     border: double 10px #fff;
-    background-position: center; 
+    background-position: center;
 }
 
 .finhanabiback {
@@ -232,7 +229,7 @@
 
     border-radius: 50px;
     border: double 10px #fff;
-    background-position: right; 
+    background-position: right;
 }
 
 .finkamihubukiback {
@@ -293,89 +290,6 @@
 
 
 
-/* 選択肢位置変更 */
-#qselect_area {
-    position: relative;
-    position: absolute;
-
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-#ans1 {
-    position: absolute;
-    top: 30%;
-    left: 3%;
-
-    opacity: 0;
-}
-
-.hint_appearance1{
-    animation: appear 1s 8s 1 forwards;
-}
-
-@keyframes appear {
-    from{
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-#ans2 {
-    position: absolute;
-    top: 45%;
-    left: 3%;
-
-    opacity: 0;
-}
-
-.hint_appearance2{
-    animation: appear2 1s 10s 1 forwards;
-}
-
-@keyframes appear2 {
-    from{
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-#ans3 {
-    position: absolute;
-    top: 65%;
-    left: 3%;
-
-    opacity: 0;
-}
-
-.hint_appearance3{
-    animation: appear3 1s 20s 1 forwards;
-}
-
-@keyframes appear3 {
-    from{
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
 
 /* ゲージ */
 
@@ -385,7 +299,7 @@
     top: 2%;
     left: 50%;
     transform: translateX(-50%);
-    width: 64.5%;    
+    width: 64.5%;
 }
 
 progress {
@@ -418,17 +332,17 @@ progress {
 }
 
 @keyframes tenmetsu {
-    0%{
+    0% {
         opacity: 0;
         transform: scale(1.0);
     }
 
-    50%{
+    50% {
         opacity: 1;
         transform: scale(1.5);
     }
 
-    100%{
+    100% {
         opacity: 0;
         transform: scale(1.0);
     }
@@ -548,7 +462,7 @@ progress {
 }
 
 #hint_sentence {
-    padding-top: 3%;
+    padding-top: 2.5%;
     padding-left: 1em;
     letter-spacing: 0.1em;
 }
@@ -564,6 +478,95 @@ progress {
 .qsentece_imgbox img {
     width: 100%;
 }
+
+
+
+
+/* 選択肢位置変更 */
+#qselect_area {
+    position: relative;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#ans1 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+
+    opacity: 0;
+}
+
+.hint_appearance1 {
+    animation: appear 1s 8s 1 forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#ans2 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+
+    opacity: 0;
+}
+
+.hint_appearance2 {
+    animation: appear2 1s 10s 1 forwards;
+}
+
+@keyframes appear2 {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#ans3 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+
+    opacity: 0;
+}
+
+.hint_appearance3 {
+    animation: appear3 1s 20s 1 forwards;
+}
+
+@keyframes appear3 {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 
 
@@ -706,4 +709,369 @@ progress {
 .pattern_e {
     font-weight: bold;
     color: #ffd211;
+}
+
+
+
+
+
+
+
+/* タブレット大サイズ */
+
+@media screen and (max-width: 1200px) {
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    /* スタートボタンを位置を真ん中にして、形を真ん丸に */
+    #sbutton_box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0;
+        animation: leftmove 4s .7s infinite ease-in-out;
+
+        z-index: 100;
+    }
+
+    @keyframes leftmove {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+
+
+    /* リセットボタンの位置を画面左上にｈして、jsで表示内容を「←」だけに */
+    #rebutton_box {
+        position: fixed;
+        top: 4%;
+        left: 4%;
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+        animation: none;
+
+        z-index: 100;
+    }
+
+
+
+    /* ゲーム画面を画面幅いっぱいに */
+    #gamegamenbox {
+        position: relative;
+        position: fixed;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        color: #fff;
+    }
+
+
+    /* 問題数の位置変更 */
+    #qcount_area {
+        top: 25%;
+    }
+
+
+
+    /* Q の下の余白修正と文字の大きさ修正 */
+    #question {
+        margin-bottom: 3%;
+        font-size: 24px;
+    }
+
+    /* 問題文の文字の大きさと行間の修正 */
+    #question_sentence {
+        line-height: 1.8em;
+        font-size: 18px;
+    }
+
+    /* ヒントが出ますの上の余白を修正 */
+    #hint_sentence {
+        padding-top: 2%;
+    }
+
+    /* 歯車の位置調整 */
+    .qsentece_imgbox {
+        bottom: 10%;
+    }
+
+
+
+
+    /* 回答ボタンの疑似要素の内容修正 */
+    #ansButton1::before {
+        content: "➀:";
+    }
+
+    #ansButton2::before {
+        position: absolute;
+        content: "➁:";
+    }
+
+    #ansButton3::before {
+        content: "➂:";
+    }
+
+    #ansButton4::before {
+        content: "➃:";
+    }
+
+
+
+
+}
+
+
+/* タブレット中 */
+
+@media screen and (max-width: 769px) {
+
+
+    /* 回答ボタンを横向き＆位置変更 */
+    #qbutton_area {
+        top: 0%;
+        left: 1%;
+        width: 98%;
+        height: 20%;
+        flex-direction: row;
+        border: solid 5px #fff;
+    }
+
+    /* 回答ボタンの大きさ変更 */
+    .answer_button {
+        height: 90%;
+        margin: 1% 0.5%;
+    }
+
+    /* ホバー時の縦の動きを小さく */
+    .answer_button:hover {
+        animation: .2s push3 forwards;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+
+    @keyframes push3 {
+        from {
+            transform: translateY(0px);
+            background: #000;
+            color: #fff;
+            border: double 5px #ffffff;
+        }
+
+        to {
+            transform: translateY(2px);
+            background-color: #fff;
+            color: #0245ff;
+            border: double 5px #000;
+        }
+    }
+
+    /* 回答ボタンの疑似要素の内容修正 */
+    #ansButton1::before {
+        content: "";
+    }
+
+    #ansButton2::before {
+        content: "";
+    }
+
+    #ansButton3::before {
+        content: "";
+    }
+
+    #ansButton4::before {
+        content: "";
+    }
+
+    .answer_button {
+        font-size: 14px;
+    }
+
+
+
+    /* 問題文エリアの位置変更 */
+    #qsentece_area {
+        bottom: 5%;
+        left: 1%;
+        right: 1%;
+        width: 98%;
+        height: 75%;
+        border: solid 5px #fff;
+    }
+
+    /* Q の下の余白修正と文字の大きさ修正 */
+    #question {
+        margin-bottom: 5%;
+    }
+
+
+    /* 問題文の文字の大きさと行間の修正 */
+    #question_sentence {
+        line-height: 1.7em;
+        font-size: 17px;
+    }
+
+    /* ヒントが出ますの上の余白を修正 */
+    #hint_sentence {
+        padding-top: 0%;
+    }
+
+    /* ヒントが出ますの文字サイズを修正 */
+    #hint_sentence {
+        font-size: 16px;
+    }
+
+
+    /* 歯車の位置調整 */
+    .qsentece_imgbox {
+        bottom: 15%;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 565px) {
+
+    /* 問題画面のサイズ・位置変更 */
+
+    #mainbox {
+        position: relative;
+        width: 99%;
+        height: 65%;
+        margin: 0;
+        top: 35%;
+        border-radius: 10px;
+    }
+
+
+    /* プログレスバーの位置変更 */
+    #progress_box {
+        top: 25%;
+    }
+
+    /* カウントダウンタイマーの位置変更 */
+    #qcountdown_area {
+        top: 5%;
+        right: 4%;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+    }
+
+    /* 問題数 兼 TIMEUP の位置変更 */
+    #qcount_area {
+        position: absolute;
+        left: 50%;
+        top: 4%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 20%;
+        border-radius: 10px;
+    }
+
+    /* 問題文の文字の大きさと行間の修正 */
+    #question_sentence {
+        line-height: 1.6em;
+        font-size: 16px;
+    }
+
+    /* ヒントが出ますの上の余白を修正 */
+    #hint_sentence {
+        padding-top: 2%;
+    }
+
+    /* ヒントが出ますの文字サイズを修正 */
+    #hint_sentence {
+        font-size: 15px;
+    }
+
+
+    /* ヒントが出ますの左の余白をなしに */
+    #hint_sentence {
+        padding-left: 0em;
+    }
+
+    /* 歯車の位置調整 */
+    .qsentece_imgbox {
+        bottom: 2%;
+    }
+
+
+    /* 最後の文章の文字サイズ変更 */
+    #answer {
+        font-size: 26px;
+    }
+
+}
+
+
+@media screen and (max-width: 426px) {
+    /* 最後の文章の文字サイズ変更 */
+    #answer {
+        font-size: 20px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 376px) {
+
+    /* カウントダウンの文字サイズ変更 */
+    h3 {
+        font-size: 16px;
+    }
+
+    /* 問題数の文字サイズ変更 */
+    h2 {
+        font-size: 18px;
+    }
+
+    /* Q 部分の文字サイズ変更 */
+    #question {
+        font-size: 21px;
+    }
+
+    /* 歯車の位置変更 */
+    .qsentece_imgbox {
+        bottom: -4%;
+    }
+
+}
+
+
+@media screen and (max-width: 321px) {
+
+    /* 歯車のサイズと位置変更 */
+    .qsentece_imgbox {
+        width: 12%;
+        bottom: -6%;
+    }
+
+     /* 最後の文章の文字サイズ変更 */
+     #answer {
+        font-size: 18px;
+    }
+
 }
