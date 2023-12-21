@@ -1,17 +1,17 @@
 const question = [
     ["ballgif", "Q1.",
-        "鉄球の質量を測ろうとしたところ、あやまって全て落としてしまいました。総重量は画面の通りです。このとき、鉄球１つあたりの質量を答えなさい。",
-        "(残り時間が 20秒・10秒 になると、ヒントが与えられます。)", "Hint.", 
-        "➊<br>1メモリは「0.2」", "➋<br>計算式は「9.4 ÷ 4」", "2.25", "2.35", "2.55","2.6", 2],
+        "鉄球の質量を測ろうとしたところ、全て落としてしまいました。総重量を画面から読み取り、鉄球１つあたりの質量を答えなさい。",
+        "", "", 
+        "", "", "2.25", "2.35", "2.55","2.6", 2],
 
     ["nazotokiback", "Q2.",
         "",
-        "(残り時間が 20秒・10秒 になると、ヒントが与えられます。)","Hint.", "➊<br>色を英単語で表す", 
-        "➋<br>英単語の〇番目の文字", "虹", "兎", "戻","再", 1],
+        "( 残り時間 20秒・10秒 で【ヒント】が出現 )","【Hint.】", "➊ 色を英単語で表す", 
+        "➋ 英単語の〇番目の文字", "虹", "兎", "戻","再", 1],
     
         ["hanabigif", "Q3.",
-        "画面上で打ちあがっている赤・青・黄・緑の４色の花火のうち、黄色の花火は「 何ヶ所 」から表示されているか答えなさい。",
-        "(この問題にヒントはありません。)","", "", "", "3ヶ所", "4ヶ所", "5ヶ所","6ヶ所", 4],
+        "画面上の赤・青・黄・緑の４色の花火のうち、黄色の花火は「 何ヶ所 」から表示されているか答えなさい。",
+        "","", "", "", "3ヶ所", "4ヶ所", "5ヶ所","6ヶ所", 4],
 ];
 
 
@@ -71,8 +71,17 @@ qcount_area.style.visibility = "hidden"
 qcountdown_area.style.visibility = "hidden"
 qselect_area.style.visibility = "hidden"
 
-// & リセットボタンは触れないように
-loadbutton.disabled = "disabled";
+
+// & リセットボタンは1200以上なら最初触れないように
+//   1200以下なら最初は表示させない。
+
+let width = window.innerWidth
+  if (width < 1200) {
+    loadbutton.style.visibility = "hidden"
+  } else {
+    loadbutton.disabled = "disabled";
+  }
+
 
 
 
@@ -87,10 +96,17 @@ const ansStart = () => {
     qcountdown_area.style.visibility = "visible"
     qselect_area.style.visibility = "visible"
 
-    // & リセットボタンを機能するよう改変
-    loadbutton.disabled = null;
-    loadbutton.classList.add("button-shadow2-2")
-    loadbutton.innerHTML = "<h2>Click<br>To Replay</h2>"
+    // & リセットボタンを1200以上なら出現、1200以下なら機能するよう改変
+
+    if (width < 1200) {
+        loadbutton.style.visibility = "visible"
+        loadbutton.classList.add("button-shadow2-2")
+        loadbutton.innerHTML = "<h2>←</h2>";
+      } else {
+        loadbutton.disabled = null;
+        loadbutton.classList.add("button-shadow2-2")
+        loadbutton.innerHTML = "<h2>Click<br>To Replay</h2>";
+      }
 
 
 
@@ -138,16 +154,36 @@ const countDownTimer = () => {
     if (successFlag == false) {
 
         if (countDownTime > 20) {
-            countDown.innerHTML = `残り時間<br> <span class="pattern_a">${countDownTime}秒</span>`;
+
+            if (width < 769) {
+                countDown.innerHTML = `<span class="pattern_a">${countDownTime}秒</span>`;
+              } else {
+                countDown.innerHTML = `残り時間<br> <span class="pattern_a">${countDownTime}秒</span>`;
+              }
 
         } else if ((countDownTime >= 11) && (countDownTime <= 20)) {
-            countDown.innerHTML = `残り時間<br> <span class="pattern_b">${countDownTime}秒</span>`;
+
+            if (width < 769) {
+                countDown.innerHTML = `<span class="pattern_b">${countDownTime}秒</span>`;
+              } else {
+                countDown.innerHTML = `残り時間<br> <span class="pattern_b">${countDownTime}秒</span>`;
+              }
 
         } else if ((countDownTime >= 6) && (countDownTime <= 10)) {
-            countDown.innerHTML = `残り時間<br> <span class="pattern_f">${countDownTime}秒</span>`;
+            
+            if (width < 769) {
+                countDown.innerHTML = `<span class="pattern_f">${countDownTime}秒</span>`;
+              } else {
+                countDown.innerHTML = `残り時間<br> <span class="pattern_f">${countDownTime}秒</span>`;
+              }
 
         } else if (countDownTime <= 5) {
-            countDown.innerHTML = `残り時間<br> <span class="pattern_c">${countDownTime}秒</span>`;
+            
+            if (width < 769) {
+                countDown.innerHTML = `<span class="pattern_c">${countDownTime}秒</span>`;
+              } else {
+                countDown.innerHTML = `残り時間<br> <span class="pattern_c">${countDownTime}秒</span>`;
+              }
         }
 
 
@@ -179,9 +215,16 @@ const countDownTimer = () => {
                 qselect_area.style.visibility = "hidden"
 
 
-                //問題数の表示内容を「TIME UP」に
-                document.getElementById("questionnum").innerHTML = `<span class="pattern_c">TIME<br>UP<span class="pattern_b"></span>`
+                //問題数の表示内容を「TIME UP」にして背景色をなしに
+                if (width < 565) {
+                    qcount_area.style.backgroundColor = "transparent"
+                    document.getElementById("questionnum").innerHTML = `<span class="pattern_c">TIME UP<span class="pattern_b"></span>`
 
+                  } else {
+                    qcount_area.style.backgroundColor = "transparent"
+                    document.getElementById("questionnum").innerHTML = `<span class="pattern_c">TIME<br>UP<span class="pattern_b"></span>`
+                  }
+                
 
                 //内側背景のリセット
                 backgroundresset();
@@ -259,12 +302,12 @@ const ansButton = (e) => {
     
     //二問目の変更項目
     if (questionCount == question.length - 2) {
-        document.getElementById("ans1").style.top = "50%";
-        document.getElementById("ans1").style.left = "-27%";
-        document.getElementById("ans2").style.top = "60%";
-        document.getElementById("ans2").style.left = "-27%";
+        document.getElementById("ans1").style.top = "55%";
+        document.getElementById("ans1").style.left = "5%";
+        document.getElementById("ans2").style.top = "70%";
+        document.getElementById("ans2").style.left = "5%";
         document.getElementById("ans3").style.top = "80%";
-        document.getElementById("ans3").style.left = "-27%";
+        document.getElementById("ans3").style.left = "5%";
 
         hintAppear2();
 
@@ -287,7 +330,7 @@ const ansButton = (e) => {
             gamegamenbox.classList.add("finsakuraback")
 
         } else {
-            document.getElementById("answer").innerHTML = `お疲れさまでした。<br>全${questionCount}問中、<span class="pattern_d">${successCount}問</span> 正解です。`;
+            document.getElementById("answer").innerHTML = `お疲れさまでした。<br>全${questionCount}問中 <span class="pattern_d">${successCount}問</span> 正解です。`;
             gamegamenbox.classList.add("finkamihubukiback")
         }
 
@@ -301,7 +344,7 @@ const ansButton = (e) => {
 
 
         //問題数の表示の記述を変更
-        document.getElementById("questionnum").innerHTML = "おわり"
+        // document.getElementById("questionnum").innerHTML = "おわり"
 
         successFlag = true;
 
